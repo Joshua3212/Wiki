@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <Name>WebApp</Name>
+    <RootNamespace>WebApp</RootNamespace>
+    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <TestFramework>Pytest</TestFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>3ec5a60c-0fab-4799-8d66-c514019b44e0</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <ProjectTypeGuids>{5F0BE9CA-D677-4A4D-8806-6076C0FAAD37};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <StartupFile>manage.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <WebBrowserUrl>http://localhost</WebBrowserUrl>
+    <LaunchProvider>Django launcher</LaunchProvider>
+    <DjangoSettingsModule>WebApp.settings</DjangoSettingsModule>
+    <OutputPath>.</OutputPath>
+    <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Accounts\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="manage.py" />
+    <Compile Include="Accounts\admin.py" />
+    <Compile Include="Accounts\apps.py" />
+    <Compile Include="Accounts\migrations\__init__.py" />
+    <Compile Include="Accounts\models.py" />
+    <Compile Include="Accounts\tests.py" />
+    <Compile Include="Accounts\aviews.py" />
+    <Compile Include="Main\admin.py" />
+    <Compile Include="Main\apps.py" />
+    <Compile Include="Main\migrations\__init__.py" />
+    <Compile Include="Main\models.py" />
+    <Compile Include="Main\tests.py" />
+    <Compile Include="Main\mviews.py" />
+    <Compile Include="Main\__init__.py" />
+    <Compile Include="WebApp\__init__.py" />
+    <Compile Include="WebApp\settings.py" />
+    <Compile Include="WebApp\urls.py" />
+    <Compile Include="WebApp\wsgi.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Accounts\templates\dashboard\" />
+    <Folder Include="Accounts\templates\registration\" />
+    <Folder Include="Main\templates\article\" />
+    <Folder Include="WebApp\" />
+    <Folder Include="Accounts\" />
+    <Folder Include="Accounts\migrations\" />
+    <Folder Include="Accounts\templates\" />
+    <Folder Include="Main\" />
+    <Folder Include="Main\migrations\" />
+    <Folder Include="Main\templates\" />
+    <Folder Include="Main\templates\Main\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Main\templates\article\article_delete.html" />
+    <Content Include="Main\templates\article\article_edit.html" />
+    <Content Include="Main\templates\article\article_main.html" />
+    <Content Include="Accounts\templates\base.html" />
+    <Content Include="Accounts\templates\dashboard\index.html" />
+    <Content Include="Accounts\templates\dashboard\post.html" />
+    <Content Include="Accounts\templates\logedout.html" />
+    <Content Include="Accounts\templates\registration\login.html" />
+    <Content Include="Accounts\templates\registration\register.html" />
+    <Content Include="Main\templates\article\article.html" />
+    <Content Include="Main\templates\logout-base.html" />
+    <Content Include="package.json" />
+    <Content Include="requirements.txt" />
+    <Content Include="db.sqlite3" />
+    <Content Include="Main\templates\Main\index.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="readme.html">
+      <SubType>WebBrowser</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="env\">
+      <Id>env</Id>
+      <Version>3.8</Version>
+      <Description>env (Python 3.8 (32-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X86</Architecture>
+    </Interpreter>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
+  <!-- Specify pre- and post-build commands in the BeforeBuild and 
+       AfterBuild targets below. -->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <AutoAssignPort>True</AutoAssignPort>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

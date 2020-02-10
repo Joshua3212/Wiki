@@ -1,0 +1,44 @@
+﻿{% extends 'base.html'%}
+
+{% block content %}
+
+<!--nospace script-->
+<script>
+    function AvoidSpace(event) {
+    var k = event ? event.which : window.event.keyCode;
+    if (k == 32) return false;
+}
+
+</script>
+<!--nospace script end-->
+
+<br />
+<div class="form-group" style="width: 60%; margin : 0 auto">
+    <form method="post"> <br />
+    {%csrf_token%}
+        <lable style="float : left">Username*</lable> <br />
+        <input class="form-control" type="text" name="username" size="100" value="{{user.get_username}}" readonly/><br /><br />
+        <label style="float : left">Title*</label>
+        <input class="form-control" type="text" name="title" size="100" required/>
+        <small class="form-text text-muted" style="float : left">Short Title like : Setup Django</small><br /><br />
+        <lable style="float : left">Background Picture*</lable>
+        <input type="text" class="form-control" name="picture" size="100" value="https://wikicdn.web.app/background1.jpg"/>
+        <small style="float : left" class="form-text text-muted" >Specify an url like this : <span style="color : grey">https://example.com</span> we may soon launch a small cdn </small>
+        <br /><br /><br />
+        <lable style="float : left">Article*</lable> <br />
+        <textarea cols="100" rows="20" class="form-control" name="mainContent" required></textarea> <br /><br />
+        <br />
+        <p style="display : inline-block">Url*: /article/</p> <input class="form-control" style="width : 200px; display : inline-block" type="text"  id="txtEmpName" name="url" onkeypress="return AvoidSpace(event)" required>
+        <small class="form-text text-muted">Please make sure that the url is not already in use and that you don't use any special characters</small>
+        <br /><br />
+        <button type="submit" class="btn btn-success">Submit</button>
+    <br /><br />
+        <p>Please add links to additional pictures as following : <span style="color : grey; text-decoration : underline">Lorem ipsum dolor sit amet, consectetur adipisicing elit. < img href="https://example.com"/>Vitae sint labore omnis porro repellat delectus dolorem beatae asperiores nulla quidem? </span></p>
+
+    </form>
+</div>
+
+
+
+
+{%endblock%}

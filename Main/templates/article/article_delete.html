@@ -1,0 +1,14 @@
+﻿{%extends 'base.html'%}
+
+{%block content%}
+    {% if object.user == user.get_username %}
+        <form method="POST">
+            {%csrf_token%}
+            <button class="btn btn-danger" style=" position :absolute; margin : 0 auto; margin-top : 25%">Delete(will instantly delete Article)</button>
+        </form>
+       <p style="position :absolute; margin-top : 30%;text-align: center;width: 100%;">Note that this will permanently delete your post form our database</p>
+    {%else%}
+        <p style="position : absolute; margin-top : 20%;text-align: center;width: 100%;">Sorry you can't delete this article due to the fact that it wasn't written by you</p>
+    {%endif%}
+
+{%endblock%}

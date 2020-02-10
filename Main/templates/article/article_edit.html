@@ -1,0 +1,33 @@
+﻿{%extends 'base.html'%}
+
+{%block content%}
+    {% if object.user == user.get_username %}
+        <br />
+<div class="form-group" style="width: 60%; margin : 0 auto">
+    <form method="post"> <br />
+    {%csrf_token%}
+        <lable style="float : left">Username*</lable> <br />
+        <input class="form-control" type="text" name="username" size="100" value="{{user.get_username}}" readonly/><br /><br />
+        <label style="float : left">Title*</label>
+        <input class="form-control" type="text" name="title" size="100" value="{{object.title}}" required/>
+        <small class="form-text text-muted" style="float : left">Short Title like : Setup Django</small><br /><br />
+        <lable style="float : left">Background Picture*</lable>
+        <input type="text" class="form-control" name="picture" size="100" value="{{object.picture}}"/>
+        <small style="float : left" class="form-text text-muted" >Specify an url like this : <span style="color : grey">https://example.com</span> we may soon launch a small cdn </small>
+        <br /><br /><br />
+        <lable style="float : left">Article*</lable> <br />
+        <textarea cols="100" rows="20" class="form-control" name="mainContent" required>{{object.mainContent}}</textarea> <br /><br />
+        <br />
+        <p style="display : inline-block">Url*: /article/</p> <input class="form-control" style="width : 200px; display : inline-block" type="text"  id="txtEmpName" name="url" onkeypress="return AvoidSpace(event)" value="{{object.url}}" readonly>
+        <br /><br />
+        <button type="submit" class="btn btn-warning">Change Article</button>
+    <br /><br />
+        <p>Please add links to additional pictures as following : <span style="color : grey; text-decoration : underline">Lorem ipsum dolor sit amet, consectetur adipisicing elit. < img href="https://example.com"/>Vitae sint labore omnis porro repellat delectus dolorem beatae asperiores nulla quidem? </span></p>
+
+    </form>
+</div>
+    {%else%}
+        <p style="position : absolute; margin-top : 20%;text-align: center;width: 100%;">Sorry you can't edit this article due to the fact that it wasn't written by you</p>
+    {%endif%}
+
+{%endblock%}

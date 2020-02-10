@@ -1,0 +1,48 @@
+﻿{% extends 'base.html'%}
+
+{% block content %}
+<style>
+    #card {
+        display: inline-block;
+        margin: 20px;
+        text-align: center;
+    }
+    img {
+        width: 200px;
+        height: 300px;
+        overflow: hidden;
+        border-radius: 15px;
+        opacity : 1
+    }
+
+    img:hover {
+        width : 250px;
+        height : 350px;
+        transition : 1s ease-in-out
+    }
+
+    h2 {
+        margin-top: -200px;
+        color: white;
+        text-shadow: 0px 0px 8px black;
+        font-size: 30px;
+        width : 100%
+    }
+
+</style>
+
+<br />
+<div style="margin-top : 100px; text-align : center">
+    <a class="btn btn-secondary" href="post/">Create a new Post </a>
+    <a class="btn btn-secondary" href="/article/">Explore other Posts</a> <br /> <br />
+</div>
+<br /><br />
+<h3>Your Posts : </h3>
+<a id="card" href="{{ object.url }}">
+    <img src="{{ object.picture }}"/>
+    <h2>{{ object.title }}</h2><br /><br /><br /><br /><br />
+    <p>By {{ object.user }}</p>
+</a>
+
+
+{%endblock%}

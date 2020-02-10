@@ -1,0 +1,134 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>Code n' Servers</title>
+    <!--------->
+    <!--Style-->
+    <!--------->
+    <style>
+        * {
+            margin : 0;
+            padding : 0;
+        }
+
+        .nav {
+            position : absolute;
+            visibility : hidden;
+            top : 0;
+            left : 0
+        }
+
+        .nav.visible {
+            transition: 1s ease-in-out;
+            width: 20%;
+            height: 100vh;
+            background-color: black;
+            position: absolute;
+        }
+
+        nav ul {
+            color: white;
+            font-size: 20px;
+            list-style-type: none
+        }
+
+        /*link styling*/
+        .linkMain{
+            text-decoration :underline !important;
+            text-decoration-color: red !important;
+            color : white !important;
+        }
+
+        .linkMain:hover {
+            transition : 1s ease-in-out;
+            background-color: white;
+            color : black !important;
+        }
+
+        .linkSecondary {
+            margin-left: 15px;
+            font-size : 15px;
+            text-decoration: underline !important;
+            text-decoration-color: red !important;
+            color: white !important;
+        }
+
+        .linkSecondary:hover {
+            transition: 1s ease-in-out;
+            background-color: white;
+            color: black !important;
+        }
+
+        /*nav link*/
+        #navButton {
+            position: absolute;
+            color: black;
+            z-index: +2;
+            top: 10px;
+            left: 20px
+        }
+
+        #navButton.menuOpen {
+            color : white;
+            transition : 1s ease-in-out;
+        }
+
+        /*menuOpen main content*/
+        .main.menuOpen {
+            width : 80%;
+            float : right;
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <h1 id="navButton"style="position : fixed" >&#x2630;</h1>
+    <nav class="nav" style="position : fixed">
+        <div>
+            <ul style="color : white ; font-size : 20px; margin : 20px; text-decoration : none; list-style-type : none">
+                <br /><br />
+                <li><a class="linkMain" href="/">Home</a></li>
+                <p style="position :absolute">&#8627;</p>
+                <li><a class="linkSecondary" href="/login/">Login</a></li>
+                <li><a class="linkSecondary" href="/register/">Registration</a></li>
+                <li><a class="linkSecondary" href="/dashboard/">Dashboard</a></li><br />
+                <li><a class="linkMain" href="/article/">Articles</a></li> <br />
+                
+            </ul>
+        </div>
+    </nav>
+
+    <div style="text-align : center ; margin-top : 0">
+        {% if user.is_authenticated %}
+            
+            <div>
+                <a style="float : right; margin-right : 20px" class="btn btn-primary" href="/logout/">Logout</a>
+                <a style="float : right; margin-right : 20px" class="btn btn-primary" href="/dashboard/">Dashboard</a>
+            </div>
+            <div class="main">
+                {%block content %}
+                {% endblock %}
+            </div>
+        {% else %}
+            <p>Please Login <a class="btn btn-primary" href="/login/">here</a></p>
+        {% endif %}
+    </div>
+
+
+    <!--Javascript-->
+    <script>
+        const nav = document.querySelector('.nav');
+        const navButton = document.querySelector('#navButton');
+        const content = document.querySelector('.main');
+
+        navButton.addEventListener('click', function () {
+            nav.classList.toggle('visible');
+            navButton.classList.toggle('menuOpen');
+            content.classList.toggle('menuOpen');
+        });
+    </script>
+    <!--Javascript end-->
+</body>
+</html>
+<!--NOT DONE-->
+

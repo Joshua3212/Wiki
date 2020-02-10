@@ -1,0 +1,30 @@
+﻿{%extends 'logout-base.html'%}
+
+
+{%block content%}
+    <!--author options-->
+    {% if object.user == user.get_username %}
+        <form method="POST">
+            {%csrf_token%}
+            <a class="btn btn-warning" style="float : right; margin-top : -12px; margin-right : 10px" href="./edit">Edit</a>
+            <a class="btn btn-danger" style="float : right; margin-top : -12px; margin-right : 20px" href="./delete">Delete</a>
+
+        </form>
+    {%endif%}
+        
+    <!--picture-->
+    <img style="width : 100%; z-index : -1; margin-top : -100px; float : left; z-index : -1; position : absolute" src="{{object.picture}}"/>
+
+    <!--written content-->
+        <br /><br /><br />
+
+        <div style="background-color : white; width : 80%; margin : 0 auto; padding : 20px; border-radius : 10px; border : 5px solid black">
+            <h1  style="text-align : center; text-decoration : underline" >{{object.title}}</h1>
+            <p style="font-size : 20px; width : 80%">{{object.mainContent}}</p>
+            <br /><br /><br /><br />
+            <p style="font-size : 15px; color : grey; float : left">This Article was written by : <span style="color : cornflowerblue; font-size : 20px; text-decoration : underline">{{object.user}}</span></p> 
+            <p style="font-size : 15px; color : grey; float : right">Publishing date : {{object.date}}</p>
+            <br /><br />
+        </div>
+
+{%endblock%}
